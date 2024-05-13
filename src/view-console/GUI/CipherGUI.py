@@ -1,6 +1,6 @@
 import sys
 sys.path.append("src")
-from CipherEngine.CipherEngine import CipherEngine, EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError
+from model.CipherEngine import CipherEngine, EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError
 
 from kivy.app import App
 from kivy.core.window import Window

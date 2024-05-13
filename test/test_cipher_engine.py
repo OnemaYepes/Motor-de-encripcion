@@ -1,8 +1,10 @@
 import unittest
+
 import sys
 sys.path.append("src")
 
-from CipherEngine.CipherEngine import CipherEngine, EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError
+from model.CipherEngine import CipherEngine
+from model.CipherError import EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError
 
 class CipherTest( unittest.TestCase ):
     """

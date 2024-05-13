@@ -26,9 +26,9 @@ Para utilizar el Motor de Encriptación, sigue los siguientes pasos:
     python -m pip install "kivy[base]"
     ```
 5. 
-    - Ejecuta la siguiente instrucción si deseas correr el programa por consola:
+    - Ejecuta la siguiente instrucción si deseas correr el programa por consola ***(BASE DE DATOS IMPLEMENTADA)***:
         ```
-        python src\Console\CipherEngineConsole.py
+        python src\view-console\Console\CipherEngineConsole.py
         ```
     - Ejecuta lo siguiente si quieres correr las pruebas unitarias:
         ```

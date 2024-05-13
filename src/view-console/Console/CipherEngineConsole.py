@@ -4,7 +4,9 @@ Interfaz de usuario por consola
 """
 import sys
 sys.path.append("src")
-from CipherEngine.CipherEngine import CipherEngine, EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError
+from model.CipherEngine import CipherEngine
+from model.CipherError import EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError
+from controller.EncryptionController import EncryptionController
 
 class ConsoleUI:
     @staticmethod
@@ -14,6 +16,7 @@ class ConsoleUI:
             key = input("Ingrese la clave de encriptación: ")
             encrypted_text = CipherEngine.EncryptText(text, key)
             print(f"Texto encriptado:\n{encrypted_text}")
+            EncryptionController.InsertIntoTable(text, key)
         except (EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError) as e:
             print("Error:", e)
         except Exception as e:
@@ -26,6 +29,7 @@ class ConsoleUI:
             key = input("Ingrese la clave de desencriptación: ")
             decrypted_text = CipherEngine.DecryptText(encrypted_text, key)
             print(f"Texto desencriptado:\n{decrypted_text}")
+            EncryptionController.SearchInTable(encrypted_text, key)
         except (EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError) as e:
             print("Error:", e)
         except Exception as e:
@@ -43,13 +47,14 @@ class ConsoleUI:
         while True:
             cls.DisplayMenu()
             choice = input("Opción: ")
-
+            EncryptionController.CreateTable()
             if choice == "1":
                 cls.EncryptText()
             elif choice == "2":
                 cls.DecryptText()
             elif choice == "3":
                 print("Saliendo...")
+                EncryptionController.DeleteTable()
                 break
             else:
                 print("Opción no válida. Intente de nuevo.")
