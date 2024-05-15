@@ -33,3 +33,21 @@ class LongerKeyError(Exception):
     
     """
     pass
+
+class WrongInfoError(Exception):
+    """
+    Raised when the key or the encrypted text doesn't match the datatable.
+    
+    Se ejecuta cuando la clave o el texto encriptado no se encuentran en la tabla
+    
+    """
+    pass
+
+class UsedKeyError(Exception):
+    """
+    Raised when the key is already taken.
+    
+    Se ejecuta cuando la clave ya está en uso.
+    
+    """
+    pass

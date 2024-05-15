@@ -15,7 +15,21 @@ El Motor de Encriptación es una aplicación que permite encriptar y desencripta
 Para utilizar el Motor de Encriptación, sigue los siguientes pasos:
 
 ### Prerrequisitos:
-- Asegúrate de tener Python 3.x instalado en tu sistema.
+* Asegúrate de tener Python 3.x instalado en tu sistema.
+
+### Configuración de SecretConfig
+El archivo `SecretConfigExample.py` contiene las variables de configuración para la conexión a la base de datos PostgreSQL. Antes de ejecutar el programa, deberás renombrar este archivo a `SecretConfig.py` y configurar las variables con los valores correspondientes.
+
+1. Copia el archivo `SecretConfigExample.py` y pégalo en la carpeta `src` del proyecto.
+2. Cambia el nombre del archivo copiado a `SecretConfig.py`.
+3. Abre el archivo `SecretConfig.py` con un editor de texto y configura las variables de conexión a la base de datos:
+    ```python
+    PGHOST = ' '  # Cambia ' ' por la dirección del host de tu base de datos.
+    PGDATABASE = ' '  # Cambia ' ' por el nombre de tu base de datos.
+    PGUSER = ' '  # Cambia ' ' por tu nombre de usuario de la base de datos.
+    PGPASSWORD = ' '  # Cambia ' ' por tu contraseña de la base de datos.
+    PGPORT = '5432'  # Cambia '5432' por el puerto de tu base de datos (generalmente es 5432).
+    ```
 
 ### Ejecución:
 1. Clona o descarga el proyecto del Motor de Encriptación.
@@ -25,19 +39,27 @@ Para utilizar el Motor de Encriptación, sigue los siguientes pasos:
     ```
     python -m pip install "kivy[base]"
     ```
-5. 
-    - Ejecuta la siguiente instrucción si deseas correr el programa por consola ***(BASE DE DATOS IMPLEMENTADA)***:
-        ```
-        python src\view-console\Console\CipherEngineConsole.py
-        ```
-    - Ejecuta lo siguiente si quieres correr las pruebas unitarias:
-        ```
-        python test\test_cipher_engine.py
-        ```
-    - Ejecuta lo siguiente si deseas correr la aplicación por consola:
-        ```
-        python src\GUI\CipherGUI.py
-        ```
+5. Debes tener instalado el módulo `psycopg2` para utilizar el Motor de Encriptación con una base de datos PostgreSQL. Puedes instalarlo ejecutando el siguiente comando en tu terminal:
+    ```
+    pip install psycopg2
+    ```
+6. Ejecuta la siguiente instrucción si deseas correr el programa por consola ***(BASE DE DATOS IMPLEMENTADA)***:
+    ```
+    python src\view-console\Console\CipherEngineConsole.py
+    ```
+7. Ejecuta lo siguiente si quieres correr las pruebas unitarias:
+    ```
+    python test\test_cipher_engine.py
+    ```
+8. Ejecuta lo siguiente si deseas correr las nuevas pruebas unitarias relacionadas con la base de datos:
+    ```
+    python test\test_cipher_database.py
+    ```
+9. Ejecuta lo siguiente si deseas correr la aplicación por consola:
+    ```
+    python src\GUI\CipherGUI.py
+    ```
+
 
 
 ## ¿Cómo está hecho?
@@ -67,3 +89,5 @@ El Motor de Encriptación implementa un algoritmo de encriptación simple pero e
 5. Para cada carácter del texto encriptado, se realiza una operación XOR entre ese carácter y el carácter correspondiente de la clave (ciclo a ciclo). El resultado de esta operación se agrega al texto desencriptado.
 
 
+### Lógica de la base de datos:
+El Motor de Encriptación utiliza una base de datos NeonDB con SQL para almacenar los textos encriptados. Se crean y eliminan tablas según sea necesario durante la ejecución del programa. Los textos encriptados se insertan en la tabla correspondiente junto con su clave de encriptación. Además, se pueden eliminar textos encriptados de la tabla utilizando la clave de encriptación proporcionada.
