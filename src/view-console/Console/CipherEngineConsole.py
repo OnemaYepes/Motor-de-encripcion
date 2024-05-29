@@ -23,8 +23,8 @@ class ConsoleUI:
     @staticmethod
     def DecryptText():
         try:
-            encrypted_text = input("Ingrese el texto encriptado: ")
             key = input("Ingrese la clave de desencriptación: ")
+            encrypted_text = input("Ingrese el texto encriptado: ")
             decrypt_text = EncryptionController.DecryptText(key, encrypted_text)
             print("El mensaje original es ->", decrypt_text)
         except (EmptyTextError, EmptyKeyError, KeyCharacterError, LongerKeyError, WrongInfoError) as e:
@@ -48,8 +48,8 @@ class ConsoleUI:
     @staticmethod
     def UpdateRegister():
         try:
-            encrypted_text = input("Ingrese el texto encriptado: ")
             key = input("Ingrese la clave de desencriptación: ")
+            encrypted_text = input("Ingrese el texto encriptado: ")
             new_text = input("Ingrese el nuevo texto que desea encriptar: ")
             new_encrypted_text = EncryptionController.UpdateFromTable(key, encrypted_text, new_text)
             print(f"El nuevo texto '{new_text}' con clave '{key}' encriptado, es:\n->  {new_encrypted_text}")
