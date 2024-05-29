@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Registro</title>
+    <style>
+        .button {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+  border: 3px solid rgb(252, 70, 100);
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+ }
+ 
+ .button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(252, 70, 100);
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+ }
+ 
+ .button:hover::before {
+  transform: translateX(0);
+ }
+
+ .form {
+  --input-focus: rgb(252, 70, 100);
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+  padding: 20px;
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  width: 50%;
+}
+
+.input {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--font-color-sub);
+  opacity: 0.8;
+}
+
+.input:focus {
+  border: 2px solid var(--input-focus);
+}
+    </style>
+</head>
+<body>
+    <form action ="/">
+        <button class="button">Menú Principal</button>
+    </form>
+    <center>
+        <form class="form" action="/registro_actualizado">
+                <h1>Actualizar Registro</h1>
+            <p>Digite los siguientes datos solicitados para actualizar el registro, esto actualizará tanto el 
+                texto sin encriptar, como el texto encriptado</p>
+            <div>
+                <input type="text" placeholder="Ingrese el nuevo texto a encriptar" class="input" name="nuevo_texto"/>
+            </div>
+            <br>
+            <div>
+                <input type="text" placeholder="Ingrese el texto encriptado" class="input" name="texto_encriptado"/>
+            </div>
+            <br>
+            <div>
+                <input type="text" placeholder="Ingrese la clave" class="input" name="clave"/>
+            </div>
+            <br>
+            <button class="button" type="submit">Actualizar Registro</button>
+        </form>
+    </center>
+    
+</body>
+</html>

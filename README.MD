@@ -8,6 +8,12 @@ Este código fue desarrollado por:
 
 - Alejandro Rivera Quintero (Estudiante de Ingeniería de Sistemas)
 
+## Colaboradores
+
+- Alejandro Gutierrez Vallejo (Estudiante de Ingeniería de Sistemas)
+
+- Tomas Ramírez Agudelo (Estudiante de Ingeniería de Sistemas)
+
 ## Descripción
 El Motor de Encriptación es una aplicación que permite encriptar y desencriptar mensajes utilizando una clave proporcionada, es decir, un sistema de cifrado simétrico. Utiliza un algoritmo de cifrado XOR para cifrar y descifrar los mensajes, lo que supone una base de la complejidad de otros algorítmos.
 
@@ -39,6 +45,7 @@ El archivo `SecretConfigExample.py` contiene las variables de configuración par
     ```
     python -m pip install "kivy[base]"
     ```
+
 5. Debes tener instalado el módulo `psycopg2` para utilizar el Motor de Encriptación con una base de datos PostgreSQL. Puedes instalarlo ejecutando el siguiente comando en tu terminal:
     ```
     pip install psycopg2
@@ -55,12 +62,22 @@ El archivo `SecretConfigExample.py` contiene las variables de configuración par
     ```
     python test\test_cipher_database.py
     ```
-9. Ejecuta lo siguiente si deseas correr la aplicación por consola:
+9. Ejecuta lo siguiente si deseas correr la aplicación por interfaz gráfica:
     ```
     python src\GUI\CipherGUI.py
     ```
-
-
+10. Si deseas ejecutar el programa desde la web, debes tener instalado el Framework de `Flask`. Házlo ejecutando la siguiente instrucción en la terminal posicionado en la raíz del proyecto.
+    ```
+    pip install flask
+    ```
+11. Puede ejecutar la aplicación web directamente, pero tendría que reiniciar cada vez que haga cambios, para esto, ejecute el siguiente comando desde la carpeta raíz:
+    ```
+    python app.py
+    ```
+12. Si ejecuta flask directamente en modo debug, el detectará cada vez que haga cambios en el código y recargará automáticamente. Para ejecutar Flask en modo Debug:
+    ```
+    python -m flask run --debug
+    ```
 
 ## ¿Cómo está hecho?
 ### Descripción de la arquitectura del proyecto:

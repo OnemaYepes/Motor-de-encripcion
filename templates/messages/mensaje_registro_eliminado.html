@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Eliminado</title>
+    <style>
+        .button {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+  border: 3px solid rgb(252, 70, 100);
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+ }
+ 
+ .button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(252, 70, 100);
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+ }
+ 
+ .button:hover::before {
+  transform: translateX(0);
+ }
+
+ .div {
+  --input-focus: rgb(252, 70, 100);
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+  padding: 20px;
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  width: 55%;
+}
+    </style>
+</head>
+<body>
+    <center>
+            <div class="div">
+            <h1> El mensaje encriptado {{texto_encriptado}}</h1>
+            <h1>con la clave {{clave}}</h1>
+            <h1>ha sido eliminado exitosamente</h1>
+            <form action="/">
+                <p>Presione click sobre el botón Menú Principal para regresar al menú principal del Motor de Encripción</p>
+                <button class="button">Menú Principal</button>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

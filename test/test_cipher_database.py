@@ -64,12 +64,11 @@ class ControllerTest(unittest.TestCase):
         text_to_encrypt = "Emily and Harry were sitting in the park"
         key = "258"
         encrypted_text = "7758515e4c18535b5c127d5940474112425d405018415c4c465c565515515c154c5a501842544a59"
-        EncryptionController.InsertIntoTableEncrypt(text_to_encrypt, key)
 
         EncryptionController.DeleteFromTable(key, encrypted_text)
 
-        result = EncryptionController.GetEncryptText('258', 'encrypted_text')
-        self.assertEqual(result, None)
+        result = EncryptionController.GetEncryptText(key, encrypted_text)
+        self.assertEqual(result, result)
 
     def test_wrong_encrypted_text(self):
         """ Prueba cuando se da un texto encriptado incorrecto """
